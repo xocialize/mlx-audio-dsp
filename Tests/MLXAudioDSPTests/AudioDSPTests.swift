@@ -8,10 +8,7 @@ import MLX
 
 final class AudioDSPTests: XCTestCase {
 
-    override class func setUp() {
-        super.setUp()
-        Device.setDefault(device: Device(.cpu))
-    }
+    override func invokeTest() { withMLXCPU { super.invokeTest() } }
 
     private func values(_ x: MLXArray) -> [Float] {
         eval(x)
